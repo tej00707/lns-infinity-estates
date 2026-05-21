@@ -1,16 +1,95 @@
-# React + Vite
+# Frontend - LNS Infinity Estates
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React application for browsing properties and managing favorites in the real estate platform.
 
-Currently, two official plugins are available:
+## Quick Start
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+npm install
+cp .env.example .env
+# Set VITE_API_URL to your backend API
+npm run dev
+```
 
-## React Compiler
+App runs at `http://localhost:5173`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Environment Setup
 
-## Expanding the ESLint configuration
+Create `.env` file with:
+```
+VITE_API_URL=http://localhost:5000
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Scripts
+
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run preview  # Preview production build locally
+npm run lint     # Run ESLint linter
+```
+
+## Project Structure
+
+```
+frontend/src/
+├── components/
+│   ├── layout/          # Navbar and page layout
+│   ├── property/        # Property card and inquiry form
+│   ├── ui/              # Reusable UI (Button, Input, Modal, Badge)
+│   ├── EmptyState.jsx   # Empty state display
+│   ├── ErrorAlert.jsx   # Error message component
+│   ├── LoadingState.jsx # Loading skeleton
+│   └── ProtectedAdminRoute.jsx  # Admin route guard
+├── pages/
+│   ├── Home.jsx         # Landing page
+│   ├── Properties.jsx   # Browse properties
+│   ├── PropertyDetails.jsx  # Single property and inquiry form
+│   ├── Favorites.jsx    # User's saved properties
+│   ├── Login.jsx        # Login form
+│   ├── Register.jsx     # Registration form
+│   ├── AdminProperties.jsx  # Admin: manage properties
+│   └── AdminInquiries.jsx   # Admin: view inquiries
+├── services/
+│   ├── api.js           # API client with base configuration
+│   └── auth.js          # Authentication utilities
+├── hooks/
+│   └── useAuth.js       # Custom hook for auth state
+├── App.jsx              # Main app with routing
+└── main.jsx             # React entry point
+```
+
+## Key Pages
+
+- **Home** - Landing page with property overview
+- **Properties** - Browse all available properties
+- **PropertyDetails** - View full property info and submit inquiries
+- **Favorites** - View saved properties (requires login)
+- **Login/Register** - User authentication
+- **Admin Dashboard** - Create and manage properties (admin only)
+
+## Features
+
+### Authentication
+- JWT token stored in localStorage
+- Protected routes require login
+- Admin routes require admin role
+- Automatic logout if token expires
+
+### Styling
+- **Tailwind CSS** - Utility-first CSS framework
+- Responsive design for all screen sizes
+- Consistent color scheme across pages
+
+### API Integration
+- Base URL from `VITE_API_URL` environment variable
+- Automatic JWT token injection in all requests
+- Centralized error handling
+
+## Notes
+
+- Built with React 19 and React Router v7
+- Uses Vite for fast development and optimized builds
+- Vite for fast development and building
+- ES6 syntax throughout
+- Component-based architecture

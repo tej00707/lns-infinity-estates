@@ -18,7 +18,7 @@ import { errorMiddleware } from './middleware/error.middleware.js';
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:5173', // or 3000 depending on your frontend
+  origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
   credentials: true
 }));
 
@@ -64,6 +64,6 @@ const startServer = async () => {
 
 // Start the server
 startServer();
-console.log("SERVER ENV:", process.env.CLOUDINARY_API_KEY);
+
 // Export app for future testing
 export { app };     
