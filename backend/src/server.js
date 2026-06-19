@@ -20,7 +20,7 @@ const app = express();
 app.use(cors({
   origin: [
     'http://localhost:5173',
-    'https://lnsinfinityestates-8fa5mqxb3-tejovanthkasula-3010s-projects.vercel.app'
+    'https://lnsinfinityestates.vercel.app/'
   ],
   credentials: true
 }));
