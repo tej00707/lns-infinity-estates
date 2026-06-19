@@ -18,7 +18,10 @@ import { errorMiddleware } from './middleware/error.middleware.js';
 const app = express();
 
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
+  origin: [
+    'http://localhost:5173',
+    'https://lnsinfinityestates-8fa5mqxb3-tejovanthkasula-3010s-projects.vercel.app'
+  ],
   credentials: true
 }));
 
