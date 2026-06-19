@@ -20,7 +20,7 @@ const app = express();
 app.use(cors({
   origin: [
     'http://localhost:5173',
-    'https://lnsinfinityestates.vercel.app/'
+    'https://lnsinfinityestates.vercel.app/api'
   ],
   credentials: true
 }));
